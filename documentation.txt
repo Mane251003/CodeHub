@@ -1,15 +1,53 @@
 Project Description:
    Կայք է ծրագրավորում սովորողների,ինչպես նաև ծրագրավորողների համար, կոպիտ ասած ծրագրավորողների չատա, որտեղ մարդիկ կարող են գրել իրենց 
-   հարցերը ծրագրավորման հետ կապված, և մյուս անդամները կարող են տեսնել և պատասխանել, այսինքն կարող են տալ հարց և ստանալ պատասխան մեկը 
-   մյուսից։ Որ ծրագրավորման լեզվին որ follow են, կստանան notlification նոր հարցումի դեպքում։ Home-ի էջում ցույց է տրվելու թեմաները, հարցերը, և կկարողանան պատասխանել։
+հարցերը ծրագրավորման հետ կապված, և մյուս անդամները կարող են տեսնել և պատասխանել, այսինքն կարող են տալ հարց և ստանալ պատասխան մեկը 
+մյուսից։ Որ ծրագրավորման լեզվին որ follow են, կստանան notlification նոր հարցումի դեպքում։ Home-ի էջում ցույց է տրվելու թեմաները, հարցերը, և կկարողանան պատասխանել։
+   Home-ի ձախ վերևի հատվածում կլինի լոգոն ու անունը։ Home ի առաջին մասում կլինի բոլոր ծրագրավորման լեզուները, որոնց կողքին կլինի 2 button (follow and information) վերևում կլինի select topiic, որը search կանի կոնկրետ ծրագրավորման լեզուն։
+   Երկրորդ մասում կլինի question-երը, օգտատիրոջ անուն-ազգանունը, հարցը, և reply կոճակը (reply կոճակը սեղմելուց ավտոմատ կնշի @անունը ու  հատված պատասխանելու համար), աջ անկյունում Էլ topic ի անունը։
+   Երրորդ մասում կլինի create questions կոճակը, որին սեղմելով կբացվի create-questions.html էջը, որտեղ օգտատերը կարող է ընտրել լեզուն, և գրել հարցը։
+   Home ի աջ անկյունում կլինի օգտատիրոջ անունը, following ի քանակն ու ցուցակը։
+
+URLS are:
+   path("", views.home, ),
+   path("question/<str:pk>/", views.question, ),
+      ցույց կտա տրված questionի համապատասխան պատասխաններն ու քննարկումները,  նաև կկարողանա պատասխանել
+   path("profile/<str:pk>", views.userProfile, ),
+      ցույց տա user ի պրոֆիլը, ու բոլոր հարցումները, որոնք գրել է user-ը։
+   path("create_question/", views.create_question, ),
+      կբացի create_question.html էջը
+   path("information/", views.information , ),
+      info button ին սեղմելով բացի info.html էջը
+   path("delete_question", views.delete_question, ),
+   login
+   logout
+   register
 
 Project Structure:
    home.html
    create-questions.html
+   information.html
+   profile.html
+   question.html
    register.html/login.html
+   delete.html
+
 DataBase:
-   question
-   answer
+
+models are:
+   class User:
+      full_name, email, password
+   class Topic:
+      name
+   class Room:
+      host(foreignkey user-ին)
+      topic(foreignkey Topic ին)
+      write_question
+   class message:
+      user(foreignkey User)
+      question
+      body
+
+ 
 
 
     
