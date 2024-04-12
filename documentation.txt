@@ -34,11 +34,12 @@ Project Structure:
 DataBase:
 
 models are:
-   class User:
-      full_name, email, password
+   class User(user):
+
    class Topic:
       name
-   class Room:
+      
+   class question:
       host(foreignkey user-ին)
       topic(foreignkey Topic ին)
       write_question
