@@ -48,6 +48,8 @@ models are:
       question
       body
 
+similar link is https://studybuddev.herokuapp.com/
+
  
 
 
